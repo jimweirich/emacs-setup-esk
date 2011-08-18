@@ -1,9 +1,14 @@
 ;;; GLobal key bindings
 
 (global-set-key (kbd "C-C C-t") 'etog-split-or-toggle)
+(global-set-key (kbd "C-C C-r") 'jw-red-cursor)
 
 (global-set-key (kbd "C-C t s")   'toggle-style)
 (global-set-key (kbd "C-C t w")   'jw-test-toggle-warnings)
+
+;; C-C g
+(global-set-key (kbd "C-C g b") 'jw-mo-git-blame)
+(global-set-key (kbd "C-C g g") 'magit-status)
 
 ;;; C-C t -- Testing Commands
 (global-set-key (kbd "C-C t F")    'jw-run-last-test-or-spec-file) ; pkg:testing
