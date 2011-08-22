@@ -40,13 +40,13 @@
 
 (global-set-key (kbd "<f2>") 'vs-visit-source) 
 
-(global-set-key (kbd "M-<f1>") (lambda () (interactive) (mshell 1)))
-(global-set-key (kbd "M-<f2>") (lambda () (interactive) (mshell 2)))
-(global-set-key (kbd "M-<f3>") (lambda () (interactive) (mshell 3)))
-(global-set-key (kbd "M-<f4>") (lambda () (interactive) (mshell 4)))
-(global-set-key (kbd "M-<f5>") (lambda () (interactive) (mshell 5)))
-(global-set-key (kbd "M-<f6>") (lambda () (interactive) (mshell 6)))
-(global-set-key (kbd "M-<f7>") (lambda () (interactive) (mshell 7)))
+(global-set-key (kbd "M-<f1>") (lambda () (interactive) (jw-shell 1)))
+(global-set-key (kbd "M-<f2>") (lambda () (interactive) (jw-shell 2)))
+(global-set-key (kbd "M-<f3>") (lambda () (interactive) (jw-shell 3)))
+(global-set-key (kbd "M-<f4>") (lambda () (interactive) (jw-shell 4)))
+(global-set-key (kbd "M-<f5>") (lambda () (interactive) (jw-shell 5)))
+(global-set-key (kbd "M-<f6>") (lambda () (interactive) (jw-shell 6)))
+(global-set-key (kbd "M-<f7>") (lambda () (interactive) (jw-shell 7)))
 
 ;;; Shell mode map
 
