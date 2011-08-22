@@ -5,6 +5,5 @@
 
 (set-face-attribute 'default nil :height 160)
 
-(color-theme-twilight)
-
-(jw-red-cursor)
+(require 'trilite)
+(color-theme-trilite)
