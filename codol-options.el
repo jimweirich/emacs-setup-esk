@@ -1,0 +1,4 @@
+;;; Codol Options
+
+(require 'codol)
+
