@@ -3,29 +3,28 @@
 (global-set-key (kbd "C-C C-t") 'etog-split-or-toggle)
 (global-set-key (kbd "C-C C-r") 'jw-red-cursor)
 
-(global-set-key (kbd "C-C t s")   'toggle-style)
-(global-set-key (kbd "C-C t w")   'jw-test-toggle-warnings)
+(global-set-key (kbd "C-C c a") 'jw-align)
 
 ;; C-C g
 (global-set-key (kbd "C-C g b") 'jw-mo-git-blame)
 (global-set-key (kbd "C-C g g") 'magit-status)
 
 ;;; C-C t -- Testing Commands
-(global-set-key (kbd "C-C t F")    'jw-run-last-test-or-spec-file) ; pkg:testing
-(global-set-key (kbd "C-C t M")    'jw-run-last-test-or-spec-method) ; pkg:testing
-(global-set-key (kbd "C-C t c")    'jw-run-test-cruise) ; pkg:testing
-(global-set-key (kbd "C-C t f")    'jw-run-test-or-spec-file) ; pkg:testing
-(global-set-key (kbd "C-C t i")    'jw-run-test-integration) ; pkg:testing
-(global-set-key (kbd "C-C t l")    'jw-run-test-functionals) ; pkg:testing
-(global-set-key (kbd "C-C t m")    'jw-run-test-or-spec-method) ; pkg:testing
-(global-set-key (kbd "C-C t r")    'jw-run-test-rake) ; pkg:testing
-(global-set-key (kbd "C-C t s")    'toggle-style) ; pkg:testing
-(global-set-key (kbd "C-C t t")    'jw-mark-for-testing) ; pkg:testing
-(global-set-key (kbd "C-C t u")    'jw-run-test-units) ; pkg:testing
-(global-set-key (kbd "C-C t w")    'jw-test-toggle-warnings) ; pkg:testing
+(global-set-key (kbd "C-C t F")   'jw-run-last-test-or-spec-file)
+(global-set-key (kbd "C-C t M")   'jw-run-last-test-or-spec-method)
+(global-set-key (kbd "C-C t c")   'jw-run-test-cruise)
+(global-set-key (kbd "C-C t f")   'jw-run-test-or-spec-file)
+(global-set-key (kbd "C-C t i")   'jw-run-test-integration)
+(global-set-key (kbd "C-C t l")   'jw-run-test-functionals)
+(global-set-key (kbd "C-C t m")   'jw-run-test-or-spec-method)
+(global-set-key (kbd "C-C t r")   'jw-run-test-rake)
+(global-set-key (kbd "C-C t s")   'toggle-style)
+(global-set-key (kbd "C-C t t")   'jw-mark-for-testing)
+(global-set-key (kbd "C-C t u")   'jw-run-test-units)
+(global-set-key (kbd "C-C t w")   'jw-test-toggle-warnings)
 
-(global-set-key (kbd "C-C t C-f")  'jw-run-last-test-or-spec-file) ; pkg:testing
-(global-set-key (kbd "C-C t C-m")  'jw-run-last-test-or-spec-method) ; pkg:testing
+(global-set-key (kbd "C-C t C-f") 'jw-run-last-test-or-spec-file)
+(global-set-key (kbd "C-C t C-m") 'jw-run-last-test-or-spec-method)
 (global-set-key (kbd "C-C t C-t") 'etog-clear-buffer-styles)
 (global-set-key (kbd "C-C t C-s") 'toggle-debug)
 
