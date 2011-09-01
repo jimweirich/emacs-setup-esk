@@ -1,5 +1,21 @@
 ;;; GLobal key bindings
 
+;;; I really like the logical line bindings for C-n and C-p.  The
+;;; standard next-line and previous-line bindings are left on the
+;;; arrow keys.
+
+(global-set-key (kbd "C-n") 'next-logical-line)
+(global-set-key (kbd "C-p") 'previous-logical-line)
+
+
+(global-set-key (kbd "s-=") 'jw-bigger-font)
+(global-set-key (kbd "s-+") 'jw-bigger-font)
+(global-set-key (kbd "s--") 'jw-smaller-font)
+
+(global-set-key (kbd "C-C =") 'jw-standard-font)
+(global-set-key (kbd "C-C +") 'jw-bigger-font)
+(global-set-key (kbd "C-C -") 'jw-smaller-font)
+
 (global-set-key (kbd "C-C C-t") 'etog-split-or-toggle)
 (global-set-key (kbd "C-C C-r") 'jw-red-cursor)
 
@@ -8,6 +24,7 @@
 ;; C-C g
 (global-set-key (kbd "C-C g b") 'jw-mo-git-blame)
 (global-set-key (kbd "C-C g g") 'magit-status)
+
 
 ;;; C-C t -- Testing Commands
 (global-set-key (kbd "C-C t F")   'jw-run-last-test-or-spec-file)
