@@ -1,4 +1,4 @@
 ;;; Some hooks
 
 ;;; Disable the highlight hook.
-(add-hook 'coding-hook (lambda () (idle-highlight-mode nil)))
+(remove-hook 'coding-hook 'turn-on-idle-highlight)
