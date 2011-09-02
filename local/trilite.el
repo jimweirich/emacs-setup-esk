@@ -63,6 +63,8 @@
      (text-cursor ((t (:background "yellow" :foreground "black"))))
      (toolbar ((t (nil))))
      (underline ((nil (:underline nil))))
-     (zmacs-region ((t (:background "snow" :foreground "ble")))))))
+     (zmacs-region ((t (:background "snow" :foreground "ble"))))
+     (show-paren-match ((t (:foreground "black" :background "#888844"))))
+     (show-paren-mismatch ((t (:background "#dd1144")))))))
 
 (provide 'trilite)
