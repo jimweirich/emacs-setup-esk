@@ -34,7 +34,7 @@
 (require 'color-theme)
 
 (defun color-theme-basic-light ()
-  "Github color theme for GNU Emacs."
+  "Basic light theme, derived from the Github color theme for GNU Emacs."
   (interactive)
   (color-theme-install
    '(color-theme-github
