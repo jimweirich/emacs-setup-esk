@@ -15,11 +15,13 @@
 (global-set-key (kbd "C-C =") 'jw-standard-font)
 (global-set-key (kbd "C-C +") 'jw-bigger-font)
 (global-set-key (kbd "C-C -") 'jw-smaller-font)
+(global-set-key (kbd "C-C ?") 'jw-face-query)
 
 (global-set-key (kbd "C-C C-t") 'etog-split-or-toggle)
 (global-set-key (kbd "C-C C-r") 'jw-red-cursor)
 
 (global-set-key (kbd "C-C c a") 'jw-align)
+(global-set-key (kbd "C-C c c") 'top-level)
 
 ;; C-C g
 (global-set-key (kbd "C-C g b") 'jw-mo-git-blame)
