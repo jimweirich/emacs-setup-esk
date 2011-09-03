@@ -20,6 +20,7 @@
 (global-set-key (kbd "C-C C-t") 'etog-split-or-toggle)
 (global-set-key (kbd "C-C C-r") 'jw-red-cursor)
 
+;; C-C c
 (global-set-key (kbd "C-C c a") 'jw-align)
 (global-set-key (kbd "C-C c c") 'top-level)
 
