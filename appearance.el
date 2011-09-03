@@ -10,6 +10,12 @@
   (require 'color-theme-github)
   (color-theme-github))
 
+(defun ct-tri ()
+  "Select the trilite theme."
+  (interactive)
+  (require 'color-theme-trilite)
+  (color-theme-github))
+
 (setq *jw-font-size* 16)
 
 (defun jw-set-font-size (points)
@@ -34,7 +40,7 @@
 
 (defun jw-face-query ()
   "Report the face at point."
-`  (interactive)
+  (interactive)
   (let ((face (get-text-property (point) 'face)))
     (if face (message (symbol-name face))
       (message "No Face"))))
