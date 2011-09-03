@@ -41,14 +41,14 @@
      ((background-color . "#f8f8ff")
       (background-mode . light)
       (border-color . "black")
-      (cursor-color . "#000000")
+      (cursor-color . "#808080")
       (foreground-color . "#000000")
       (mouse-color . "#bcd5fa"))
      ()
      (default ((t (:stipple nil :background "#f8f8ff" :foreground "#000000" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal))))
      (css-property ((t (:foreground "#0086b3"))))
      (css-selector ((t (:foreground "#990000"))))
-     (cursor ((t (:background "#a7a7a7"))))
+     (cursor ((t (:background "green"))))
      (ecb-default-general-face ((t (:height 0.9))))
      (ecb-default-highlight-face ((t (:background "#bcd5fa" :foreground "#000000"))))
      (ecb-directories-general-face ((t (:bold t :weight bold))))
@@ -61,7 +61,7 @@
      (erb-face ((t (:background "#eeeeee"))))
      (erb-out-delim-face ((t (:bold t :foreground "#445588" :weight bold))))
      (erb-out-face ((t (:background "#eeeeee"))))
-     (font-lock-builtin-face ((t (nil))))
+     (font-lock-builtin-face ((t (:foreground "#473080"))))
      (font-lock-comment-delimiter-face ((t (:italic t :slant italic :foreground "#999988"))))
      (font-lock-comment-face ((t (:italic t :foreground "#999988" :slant italic))))
      (font-lock-constant-face ((t (:foreground "#990073"))))
@@ -75,7 +75,7 @@
      (font-lock-string-face ((t (:foreground "#dd1144"))))
      (font-lock-type-face ((t (:foreground "#445588"))))
      (font-lock-variable-name-face ((t (:foreground "#0086b3"))))
-     (highlight ((t (:background "#acc3e6"))))
+     (highlight ((t (:background "#e6f1ff"))))
      (link ((t (:foreground "blue1" :underline t))))
      (link-visited ((t (:underline t :foreground "magenta4"))))
      (minibuffer-prompt ((t (:foreground "#445588"))))
@@ -105,8 +105,6 @@
      (show-paren-mismatch ((t (:background "#dd1144")))))))
 
 ;;(add-to-list 'color-themes '(color-theme-github  "GitHub" "Dudley Flanders"))
-
-(color-theme-github)
 
 (provide 'color-theme-github)
 
