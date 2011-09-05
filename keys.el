@@ -7,6 +7,7 @@
 (global-set-key (kbd "C-n") 'next-logical-line)
 (global-set-key (kbd "C-p") 'previous-logical-line)
 
+(global-set-key (kbd "M-g") 'goto-line)	; goto a line position
 
 (global-set-key (kbd "s-=") 'jw-bigger-font)
 (global-set-key (kbd "s-+") 'jw-bigger-font)
@@ -21,7 +22,6 @@
 (global-set-key (kbd "C-C C-r") 'jw-red-cursor)
 
 (global-set-key (kbd "C-C C-d") 'delete-trailing-whitespace)
-
 ;; C-C c
 (global-set-key (kbd "C-C c a") 'jw-align)
 (global-set-key (kbd "C-C c c") 'top-level)
@@ -29,7 +29,6 @@
 ;; C-C g
 (global-set-key (kbd "C-C g b") 'jw-mo-git-blame)
 (global-set-key (kbd "C-C g g") 'magit-status)
-
 
 ;;; C-C t -- Testing Commands
 (global-set-key (kbd "C-C t F")   'jw-run-last-test-or-spec-file)
@@ -75,4 +74,3 @@
           (lambda ()
             (define-key shell-mode-map (kbd "C-c w") 'jw-set-width)
             (define-key shell-mode-map (kbd "C-c SPC") 'jw-shell)))
-
