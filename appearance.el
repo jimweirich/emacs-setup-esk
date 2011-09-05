@@ -10,11 +10,17 @@
   (require 'color-theme-github)
   (color-theme-github))
 
-(defun ct-tri ()
+(defun ct-day ()
+  "Select the basic light theme."
+  (interactive)
+  (require 'color-theme-day)
+  (color-theme-github))
+
+(defun ct-night ()
   "Select the trilite theme."
   (interactive)
-  (require 'color-theme-trilite)
-  (color-theme-github))
+  (require 'color-theme-night)
+  (color-theme-night))
 
 (setq *jw-font-size* 16)
 
@@ -45,7 +51,6 @@
     (if face (message (symbol-name face))
       (message "No Face"))))
 
-(require 'trilite)
-(ct-github)
+(ct-night)
 (jw-standard-font)
 
