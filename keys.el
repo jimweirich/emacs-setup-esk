@@ -6,6 +6,7 @@
 
 (global-set-key (kbd "C-n") 'next-logical-line)
 (global-set-key (kbd "C-p") 'previous-logical-line)
+(global-set-key (kbd "s-j") 'eval-print-last-sexp)
 
 (global-set-key (kbd "M-g") 'goto-line)	; goto a line position
 
