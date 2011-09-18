@@ -1,9 +1,3 @@
-(defun jw-red-cursor ()
-  "Force the cursor to be red."
-  (interactive)
-  (custom-set-faces
-   '(cursor ((t (:background "#f00"))))))
-
 (defun ct-github ()
   "Select the github theme."
   (interactive)

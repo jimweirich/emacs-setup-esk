@@ -4,34 +4,63 @@
 ;;; standard next-line and previous-line bindings are left on the
 ;;; arrow keys.
 
+
+;;; I really don't like the starter kit bindings for the following
+;;; keys.
+;;;
+;;; Here's what I changed:
+;;;
+;;; * C-n/C-p Use logical lines rather than visual lines for
+;;;           navigation.  Leave the visual navigation functions bound
+;;;           to the arrow keys, so they are still availble if you
+;;;           like them.
+;;;
+;;; * C-s The starter kit bound uses the regexp version of incremental
+;;;       search.  I find that is rarely what I need, so I switched it
+;;;       back to the normal incremental search.
+
 (global-set-key (kbd "C-n") 'next-logical-line)
 (global-set-key (kbd "C-p") 'previous-logical-line)
-(global-set-key (kbd "s-j") 'eval-print-last-sexp)
+(global-set-key (kbd "C-s") 'isearch-forward)
+
+;;; Goto line ... Very useful.
 
 (global-set-key (kbd "M-g") 'goto-line)	; goto a line position
+
+;;; Useful in fundamental elisp mode.
+
+(global-set-key (kbd "s-j") 'eval-print-last-sexp)
+
+;;; I do a lot of presentations, and easy changing of the font size is
+;;; essential.  The first three bindings mimic the standard MAC
+;;; bindings for font changes.  The last is for easy reseting to a
+;;; stardard font size.
 
 (global-set-key (kbd "s-=") 'jw-bigger-font)
 (global-set-key (kbd "s-+") 'jw-bigger-font)
 (global-set-key (kbd "s--") 'jw-smaller-font)
+(global-set-key (kbd "s-|") 'jw-standard-font)
 
-(global-set-key (kbd "C-C =") 'jw-standard-font)
-(global-set-key (kbd "C-C +") 'jw-bigger-font)
-(global-set-key (kbd "C-C -") 'jw-smaller-font)
+;;; Display the font type for the character at the cursor point.  This
+;;; is useful for debugging color themes.
+
+;; C-c *
 (global-set-key (kbd "C-C ?") 'jw-face-query)
 
-(global-set-key (kbd "C-C C-t") 'etog-split-or-toggle)
-(global-set-key (kbd "C-C C-r") 'jw-red-cursor)
+;; C-c C-*
 
+(global-set-key (kbd "C-C C-t") 'etog-split-or-toggle)
 (global-set-key (kbd "C-C C-d") 'delete-trailing-whitespace)
-;; C-C c
+
+;; C-C c *
 (global-set-key (kbd "C-C c a") 'jw-align)
 (global-set-key (kbd "C-C c c") 'top-level)
 
-;; C-C g
+;; C-C g *
 (global-set-key (kbd "C-C g b") 'jw-mo-git-blame)
 (global-set-key (kbd "C-C g g") 'magit-status)
 
-;;; C-C t -- Testing Commands
+;;; C-C t * -- Testing Commands
 (global-set-key (kbd "C-C t F")   'jw-run-last-test-or-spec-file)
 (global-set-key (kbd "C-C t M")   'jw-run-last-test-or-spec-method)
 (global-set-key (kbd "C-C t c")   'jw-run-test-cruise)
