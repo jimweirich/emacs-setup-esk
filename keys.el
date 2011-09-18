@@ -1,10 +1,5 @@
 ;;; GLobal key bindings
 
-;;; I really like the logical line bindings for C-n and C-p.  The
-;;; standard next-line and previous-line bindings are left on the
-;;; arrow keys.
-
-
 ;;; I really don't like the starter kit bindings for the following
 ;;; keys.
 ;;;
