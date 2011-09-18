@@ -2,7 +2,7 @@
 
 ;;; * Arrows -- I prefer logical line navigation by default, the its
 ;;;             nice to have the the arrow keys use visual line
-;;;             navigation.  
+;;;             navigation.
 
 (global-set-key (kbd "<down>") 'next-visual-line)
 (global-set-key (kbd "<up>") 'previous-visual-line)
@@ -39,6 +39,7 @@
 
 ;; C-c C-*
 
+(global-set-key (kbd "C-C C-f") 'auto-fill-mode)
 (global-set-key (kbd "C-C C-t") 'etog-split-or-toggle)
 (global-set-key (kbd "C-C C-d") 'delete-trailing-whitespace)
 
@@ -78,7 +79,7 @@
 
 ;;; Function keys
 
-(global-set-key (kbd "<f2>") 'vs-visit-source) 
+(global-set-key (kbd "<f2>") 'vs-visit-source)
 
 (global-set-key (kbd "M-<f1>") (lambda () (interactive) (jw-shell 1)))
 (global-set-key (kbd "M-<f2>") (lambda () (interactive) (jw-shell 2)))
