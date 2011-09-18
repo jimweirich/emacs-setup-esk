@@ -1,21 +1,16 @@
 ;;; GLobal key bindings
 
-;;; I really don't like the starter kit bindings for the following
-;;; keys.
-;;;
-;;; Here's what I changed:
-;;;
-;;; * C-n/C-p Use logical lines rather than visual lines for
-;;;           navigation.  Leave the visual navigation functions bound
-;;;           to the arrow keys, so they are still availble if you
-;;;           like them.
-;;;
+;;; * Arrows -- I prefer logical line navigation by default, the its
+;;;             nice to have the the arrow keys use visual line
+;;;             navigation.  
+
+(global-set-key (kbd "<down>") 'next-visual-line)
+(global-set-key (kbd "<up>") 'previous-visual-line)
+
 ;;; * C-s The starter kit bound uses the regexp version of incremental
 ;;;       search.  I find that is rarely what I need, so I switched it
 ;;;       back to the normal incremental search.
 
-(global-set-key (kbd "C-n") 'next-logical-line)
-(global-set-key (kbd "C-p") 'previous-logical-line)
 (global-set-key (kbd "C-s") 'isearch-forward)
 
 ;;; Goto line ... Very useful.
