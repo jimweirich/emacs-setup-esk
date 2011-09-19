@@ -13,11 +13,13 @@
 
 (global-set-key (kbd "C-s") 'isearch-forward)
 
-;;; Goto line ... Very useful.
+;;; Meta *
 
 (global-set-key (kbd "M-g") 'goto-line)	; goto a line position
+(global-set-key (kbd "M-]") 'jw-indent-block)
+(global-set-key (kbd "M-[") 'jw-outdent-block)
 
-;;; Useful in fundamental elisp mode.
+;;; Command *
 
 (global-set-key (kbd "s-j") 'eval-print-last-sexp)
 
