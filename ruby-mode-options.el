@@ -13,3 +13,5 @@
                                     ((boundp 'write-contents-functions) 'write-contents-functions)
                                     ((boundp 'write-contents-hooks) 'write-contents-hooks))
                               'delete-trailing-whitespace)))
+
+(add-hook 'ruby-mode-hook '(lambda () (auto-fill-mode -1)))
