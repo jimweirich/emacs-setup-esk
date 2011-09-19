@@ -36,6 +36,7 @@
 
 ;; C-c *
 (global-set-key (kbd "C-C ?") 'jw-face-query)
+(global-set-key (kbd "C-c v") 'ruby-eval-or-clear-buffer)
 
 ;; C-c C-*
 
