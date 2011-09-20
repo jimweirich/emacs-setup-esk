@@ -27,7 +27,7 @@
   "Color theme by Marcus Crafter, based off the TextMate Twilight theme, created 2008-04-18"
   (interactive)
   (let* ((aquamarine "Aquamarine")
-         (black "black")
+         (black "#000000")
          (fire-brick "FireBrick")
          (green "#00FF00")
          (pink "Pink")
@@ -99,7 +99,7 @@
        (toolbar ((t (nil))))
        (underline ((nil (:underline nil))))
        (zmacs-region ((t (:background ,snow :foreground ,black))))
-       (show-paren-match ((t (:foreground ,black :background ,kacki))))
+       (show-paren-match ((t (:foreground ,green :background ,(darken kacki 70)))))
        (show-paren-mismatch ((t (:background ,deep-red))))
        (trailing-whitespace ((t (:background ,dark-red))))
        (yaml-tab-face ((t (:foreground ,black :background ,red))))))))
