@@ -1,0 +1,4 @@
+# -*- mode: ruby; require-final-newline: nil; backup-inhibited: t -*-
+#name : yfact
+# --
+->(n) { n==0 ? 1 : n*fact.(n-1) }
