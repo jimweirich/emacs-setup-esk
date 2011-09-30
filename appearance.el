@@ -8,10 +8,10 @@
   "Select the basic light theme."
   (interactive)
   (require 'color-theme-day)
-  (color-theme-github))
+  (color-theme-day))
 
 (defun ct-night ()
-  "Select the trilite theme."
+  "Select the basic dark theme."
   (interactive)
   (require 'color-theme-night)
   (color-theme-night))
