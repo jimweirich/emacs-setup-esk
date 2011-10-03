@@ -98,3 +98,7 @@
           (lambda ()
             (define-key shell-mode-map (kbd "C-c w") 'jw-set-width)
             (define-key shell-mode-map (kbd "C-c SPC") 'jw-shell)))
+
+(add-hook 'conf-mode-hook
+          (lambda ()
+            (define-key conf-mode-map (kbd "C-c SPC") 'jw-shell)))
