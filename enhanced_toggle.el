@@ -20,6 +20,7 @@
 
 (add-toggle-mapping
  '(jw-rails-spec
+   ("spec/lib/\\1_spec.rb"          . "lib/\\1.rb")
    ("spec/\\1_spec.rb"              . "app/\\1.rb")))
 
 (add-toggle-mapping
