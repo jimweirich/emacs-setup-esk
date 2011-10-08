@@ -1,6 +1,7 @@
 
 (autoload 'jw-align           "jw-align"          "Alignment functionality" t)
 (autoload 'actionscript-mode  "actionscript-mode" "Actionscript programming mode" t)
+(autoload 'go-mode            "go-mode"           "Go programming mode" t)
 
 (defun make-auto (pattern mode)
   "Add a pattern to the auto-mode alist."
@@ -12,3 +13,4 @@
 	    (cons (cons pattern mode) auto-mode-alist)))))
 
 (make-auto "\\.as$"    'actionscript-mode)
+(make-auto "\\.go$"    'go-mode)
