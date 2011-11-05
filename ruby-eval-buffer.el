@@ -34,3 +34,7 @@
   (interactive "P")
   (cond ((null n) (ruby-eval-buffer))
         (t (ruby-clear-eval-buffer)))  )
+
+(add-hook 'ruby-mode-hook
+          '(lambda ()
+             (define-key ruby-mode-map "\C-cv" 'ruby-eval-or-clear-buffer)))
