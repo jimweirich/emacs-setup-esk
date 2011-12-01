@@ -70,6 +70,7 @@
        (bold-italic ((t (:bold t))))
        (border-glyph ((t (nil))))
        (buffers-tab ((t (:background ,black :foreground ,white))))
+       (compilation-info ((t (:foreground "#00aa00"))))
        (font-lock-builtin-face ((t (:foreground ,white))))
        (font-lock-comment-face ((t (:foreground ,mid-gray))))
        (font-lock-constant-face ((t (:foreground ,(lighten mud-red 10)))))

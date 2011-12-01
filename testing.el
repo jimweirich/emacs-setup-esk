@@ -59,33 +59,65 @@
   (concat "\\(" jw-test-name-pattern "\\|\\(^ *" jw-given-keywords-pattern "\\)\\)") )
 ;;;   (concat jw-test-test-unit-pattern "\\|" jw-test-shoulda-pattern))
 
-(set-face-attribute (make-face 'test-heading1) nil
-                    :family "arial"
-                    :height 240
-                    :background "#000000"
-                    :foreground "#9999ff"
-                    :weight 'bold)
+(defun testing-dark-colors ()
+  (interactive)
+  (set-face-attribute (make-face 'test-heading1) nil
+                      :family "arial"
+                      :height 240
+                      :background "#000000"
+                      :foreground "#9999ff"
+                      :weight 'bold)
 
-(set-face-attribute (make-face 'test-heading2) nil
-                    :family "arial"
-                    :height 180
-                    :background "#000000"
-                    :foreground "#9999ff"
-                    :weight 'bold)
+  (set-face-attribute (make-face 'test-heading2) nil
+                      :family "arial"
+                      :height 180
+                      :background "#000000"
+                      :foreground "#9999ff"
+                      :weight 'bold)
 
-(set-face-attribute (make-face 'test-success) nil
-                    :family "arial"
-                    :height 240
-                    :background (if window-system "black" "#001100")
-                    :foreground (if window-system "#33ff33" "white")
-                    :weight 'bold)
+  (set-face-attribute (make-face 'test-success) nil
+                      :family "arial"
+                      :height 240
+                      :background (if window-system "black" "#001100")
+                      :foreground (if window-system "#00aa00" "white")
+                      :weight 'bold)
 
-(set-face-attribute (make-face 'test-failure) nil
-                    :family "arial"
-                    :height 240
-                    :background (if window-system "black" "#110000")
-                    :foreground (if window-system "ff3333" "white")
-                    :weight 'bold)
+  (set-face-attribute (make-face 'test-failure) nil
+                      :family "arial"
+                      :height 240
+                      :background (if window-system "black" "#110000")
+                      :foreground (if window-system "ff3333" "white")
+                      :weight 'bold))
+
+(defun testing-light-colors ()
+  (interactive)
+  (set-face-attribute (make-face 'test-heading1) nil
+                      :family "arial"
+                      :height 240
+                      :background "#000000"
+                      :foreground "#9999ff"
+                      :weight 'bold)
+
+  (set-face-attribute (make-face 'test-heading2) nil
+                      :family "arial"
+                      :height 180
+                      :background "#000000"
+                      :foreground "#9999ff"
+                      :weight 'bold)
+
+  (set-face-attribute (make-face 'test-success) nil
+                      :family "arial"
+                      :height 240
+                      :background (if window-system "#00aa00" "white")
+                      :foreground (if window-system "black" "#001100")
+                      :weight 'bold)
+
+  (set-face-attribute (make-face 'test-failure) nil
+                      :family "arial"
+                      :height 240
+                      :background (if window-system "ff3333" "white")
+                      :foreground (if window-system "black" "#110000")
+                      :weight 'bold))
 
 (add-to-list 'compilation-mode-font-lock-keywords
              '("^\\([0-9]+ examples?, 0 failures?.*\n\\)"
@@ -290,6 +322,7 @@ test headers."
 (defun jw-run-test-rake ()
   "Run the default rake command as a test."
   (interactive)
+  (save-buffer)
   (jw-prep-test-buffer)
   (jw-test-start-process jw-rake-command)
   (jw-test-insert-headers
@@ -300,6 +333,7 @@ test headers."
 (defun jw-run-test-units ()
   "Run the test:units rake command as a test."
   (interactive)
+  (save-buffer)
   (jw-prep-test-buffer)
   (jw-test-start-process jw-rake-command "test:units")
   (jw-test-insert-headers
@@ -310,6 +344,7 @@ test headers."
 (defun jw-run-test-functionals ()
   "Run the test:functionals rake command as a test."
   (interactive)
+  (save-buffer)
   (jw-prep-test-buffer)
   (jw-test-start-process jw-rake-command "test:functionals")
   (jw-test-insert-headers

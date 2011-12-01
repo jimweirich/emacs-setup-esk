@@ -1,4 +1,4 @@
-;;; color-theme-github.el --- Github color theme for GNU Emacs.
+;;; color-theme-day.el --- Light color scheme
 
 ;; Copyright (C) 2011 Dudley Flanders <dudley@steambone.org>
 
@@ -33,6 +33,7 @@
 ;; color theme (requires http://www.emacswiki.org/cgi-bin/wiki?ColorTheme )
 
 (require 'color-theme)
+(require 'color-theme-github)
 
 (defun color-theme-day ()
   "Basic light theme, derived from the Github color theme for GNU Emacs."
@@ -42,14 +43,15 @@
      ((background-color . "#f8f8ff")
       (background-mode . light)
       (border-color . "black")
-      (cursor-color . "#808080")
+      (cursor-color . "#a0a0a0")
       (foreground-color . "#000000")
       (mouse-color . "#bcd5fa"))
      ()
      (default ((t (:stipple nil :background "#f8f8ff" :foreground "#000000" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal))))
      (css-property ((t (:foreground "#0086b3"))))
      (css-selector ((t (:foreground "#990000"))))
-     (cursor ((t (:background "green"))))
+     (compilation-info ((t (:foreground "#00aa00"))))
+     (cursor ((t (:background "#00aa00"))))
      (ecb-default-general-face ((t (:height 0.9))))
      (ecb-default-highlight-face ((t (:background "#bcd5fa" :foreground "#000000"))))
      (ecb-directories-general-face ((t (:bold t :weight bold))))
