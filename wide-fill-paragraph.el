@@ -13,5 +13,3 @@ paragraph, or the wide version."
   (if (null arg)
       (fill-paragraph)
     (jw-wide-fill-paragraph)))
-
-(global-set-key (kbd "M-q") 'jw-fill-paragraph)

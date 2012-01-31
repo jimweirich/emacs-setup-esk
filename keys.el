@@ -15,7 +15,8 @@
 
 ;;; Meta *
 
-(global-set-key (kbd "M-g") 'goto-line)	; goto a line position
+(global-set-key (kbd "M-g") 'goto-line)
+(global-set-key (kbd "M-q") 'jw-fill-paragraph)
 (global-set-key (kbd "M-]") 'jw-indent-block)
 (global-set-key (kbd "M-[") 'jw-outdent-block)
 
