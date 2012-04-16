@@ -322,7 +322,7 @@ test headers."
 (defun jw-run-test-rake ()
   "Run the default rake command as a test."
   (interactive)
-  (save-buffer)
+  (jw-save-non-temp-buffer)
   (jw-prep-test-buffer)
   (jw-test-start-process jw-rake-command)
   (jw-test-insert-headers
@@ -333,7 +333,7 @@ test headers."
 (defun jw-run-test-units ()
   "Run the test:units rake command as a test."
   (interactive)
-  (save-buffer)
+  (jw-save-non-temp-buffer)
   (jw-prep-test-buffer)
   (jw-test-start-process jw-rake-command "test:units")
   (jw-test-insert-headers
@@ -344,7 +344,7 @@ test headers."
 (defun jw-run-test-functionals ()
   "Run the test:functionals rake command as a test."
   (interactive)
-  (save-buffer)
+  (jw-save-non-temp-buffer)
   (jw-prep-test-buffer)
   (jw-test-start-process jw-rake-command "test:functionals")
   (jw-test-insert-headers
@@ -387,7 +387,7 @@ test file."
         (progn
           (jw-toggle-buffer)
           (setq file-name (buffer-file-name)) ))
-    (save-buffer)
+    (jw-save-non-temp-buffer)
     (setq jw-test-last-test-buffer (buffer-name))
     (let ((line-number (int-to-string (line-number-at-pos))))
       (cond ((null default-directory) (message "Cannot find project top"))
@@ -421,7 +421,7 @@ test file."
          (test-buffer (current-buffer)) )
     (cond ((null default-directory) (message "Cannot find project top"))
           (t
-           (save-buffer)
+           (jw-save-non-temp-buffer)
            (setq jw-test-last-test-buffer (buffer-name))
            (jw-prep-test-buffer)
            (cond ((null arg)
@@ -449,7 +449,7 @@ test file."
         (progn
           (jw-toggle-buffer)
           (setq file-name (buffer-file-name)) ))
-    (save-buffer)
+    (jw-save-non-temp-buffer)
     (setq jw-test-last-test-buffer (buffer-name))
     (let ((invoke-given (save-excursion
                           (re-search-backward jw-test-all-pattern)
@@ -521,7 +521,7 @@ test file."
         (progn
           (jw-toggle-buffer)
           (setq file-name (buffer-file-name)) ))
-    (save-buffer)
+    (jw-save-non-temp-buffer)
     (setq jw-test-last-test-buffer (buffer-name))
     (let ((line-marker (jw-find-given-line-marker)))
       (cond ((null default-directory) (message "Cannot find project top"))
@@ -541,6 +541,14 @@ test file."
                 jw-rdebug-command (jw-test-option-string)
                 file-name "--" (concat "--name \"/_" line-marker "_/\""))) ))))
 
+(defun jw-temp-buffer-p ()
+  "Is the current buffer a temp buffer."
+  (string-equal "*" (substring (buffer-name) 0 1)))
+
+(defun jw-save-non-temp-buffer ()
+  "Save the buffer if it is not a temp buffer."
+  (if (not (jw-temp-buffer-p)) (save-buffer)))
+
 (defun jw-run-test-file (arg)
   "Run the current file as a test.
 If this file name does not include the string 'test' and there is
@@ -555,7 +563,7 @@ test file."
          (default-directory (jw-find-project-top file-name)) )
     (cond ((null default-directory) (message "Cannot find project top"))
           (t
-           (save-buffer)
+           (jw-save-non-temp-buffer)
            (setq jw-test-last-test-buffer (buffer-name))
            (jw-prep-test-buffer)
            (cond ((null arg)
