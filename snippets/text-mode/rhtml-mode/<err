@@ -1,0 +1,18 @@
+# -*- mode: html; require-final-newline: nil; backup-inhibited: t -*-
+#name: <rails-errors/>
+# --
+<% if model.errors.any? %>
+<div id="errors">
+  <h3>
+    Oops! The <%= model.class.name.humanize.downcase %> could not be saved.
+  </h3>
+  <p>
+    Please correct the following <%= pluralize(model.errors.count, "error") %>:
+  </p>
+  <ul>
+    <% model.errors.full_messages.each do |message| %>
+    <li><%= message %></li>
+    <% end %>
+  </ul>
+</div>
+<% end %>
