@@ -1,0 +1,4 @@
+# -*- mode: ruby; require-final-newline: nil; backup-inhibited: t -*-
+#name : response.should render_template()
+# --
+response.should render_template("${1:TemplateName}")$0

@@ -1,0 +1,4 @@
+# -*- mode: ruby; require-final-newline: nil; backup-inhibited: t -*-
+#name : response.should redirect_to
+# --
+response.should redirect_to(${1:path})$0
