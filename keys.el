@@ -76,6 +76,8 @@
 (global-set-key (kbd "C-C t 1") (lambda () (interactive) (setq jw-test-single-window t))) ; pkg:testing
 (global-set-key (kbd "C-C t 2") (lambda () (interactive) (setq jw-test-single-window nil))) ; pkg:testing
 
+(global-set-key (kbd "C-C v") 'jw-eval-or-clear-buffer) ; pkg:eval-buffer
+
 (global-set-key (kbd "C-C >") 'tags-reset-tags-tables)
 
 (global-set-key (kbd "C-z") 'scroll-down) ; I *hate* suspend bound on this key
