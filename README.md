@@ -1,7 +1,7 @@
 # Jim Weirich's Emacs Setup
 
 This is my emacs setup.  It is currently based on the Emacs Starter
-Kit, by Technomancy, version 1 (n.b. version 1 is the master branch, not v2). (https://github.com/technomancy/emacs-starter-kit/tree/master)
+Kit by Technomancy, version 1 (n.b. version 1 is the master branch, not v2). (https://github.com/technomancy/emacs-starter-kit/tree/master)
 
 ## Emacs Version
 
