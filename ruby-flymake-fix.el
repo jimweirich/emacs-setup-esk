@@ -1,8 +1,6 @@
 ;;; Override the starter kits ruby flymake init to use Ruby 1.9
 
-(if (file-exists-p "/Users/jim/local/bin/ruby19")
-    (setq flymake-ruby-command-name "/Users/jim/local/bin/ruby19")
-  (setq flymake-ruby-command-name "ruby"))
+(setq flymake-ruby-command-name (concat user-specific-dir "/bin/autoruby"))
 
 (defun flymake-ruby-init ()
   (let* ((temp-file (flymake-init-create-temp-buffer-copy

@@ -1,0 +1,23 @@
+#!/bin/sh
+
+
+function last_ruby {
+    programs=(`ls $HOME/.rvm/rubies/$1/bin/ruby`)
+    echo "${programs[@]: -1}"
+}
+
+MACRUBY=`last_ruby "macruby-*"`
+RUBY19=`last_ruby "ruby-1.9.*-p*"`
+RUBY18=`last_ruby "ruby-1.8.*-p*"`
+
+if [ -r $MACRUBY -a \( -r "app" -o -r "../app" -o -r "../../app" -o -r "../../../app" \) ]; then
+    RUBY=$MACRUBY
+elif [ -r $RUBY19 ]; then
+    RUBY=$RUBY19
+elif [ -r $RUBY18 ]; then
+    RUBY=$RUBY18
+else
+    RUBY=ruby
+fi
+
+exec $RUBY "$@"
