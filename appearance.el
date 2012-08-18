@@ -45,6 +45,12 @@
     (if face (message (symbol-name face))
       (message "No Face"))))
 
-(ct-night)
-(jw-standard-font)
+(defun jw-face-query-at-mark ()
+  "Report the face at point."
+  (interactive)
+  (let ((face (get-text-property (mark) 'face)))
+    (if face (message (symbol-name face))
+      (message "No Face"))))
 
+(require 'jw-dark-theme)
+;;;;;(jw-standard-font)
