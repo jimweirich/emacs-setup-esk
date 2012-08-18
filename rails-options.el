@@ -2,8 +2,8 @@
 
 ;;; I don't like the rinari abbrevs, so ignore them
 
-(provide 'rinari-abbrevs)
-(require 'rinari)
+;;;;;(provide 'rinari-abbrevs)
+;;;;;(require 'rinari)
 
 ;;; The rinari find view function doesn't recognize .erb files.  Here's a replacement.
 
@@ -18,7 +18,7 @@
                  (concat appdir "views/" cls "/" fn ".html.erb")
                  (concat appdir "views/" cls "/" fn ".rhtml"))))))
 
-(define-key ruby-mode-map "\C-c\C-v" 'jw-find-view)
+;;;;;(define-key ruby-mode-map "\C-c\C-v" 'jw-find-view)
 
 (defun jw-file-name-sans-extension (filename)
   (if (string-match "\.html\.erb$" filename)
