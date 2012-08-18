@@ -1,0 +1,4 @@
+# -*- mode: html; require-final-newline: nil; backup-inhibited: t -*-
+#name: <% ... %>
+# --
+<% $0 %>

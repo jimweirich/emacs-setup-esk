@@ -1,0 +1,9 @@
+# -*- mode: ruby; require-final-newline: nil; backup-inhibited: t -*-
+#name : Rails form_for
+# --
+<%= form_for(${1:object}) do |f| %>
+  $0
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>

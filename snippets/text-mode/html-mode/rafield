@@ -1,0 +1,7 @@
+# -*- mode: ruby; require-final-newline: nil; backup-inhibited: t -*-
+#name : Rails field
+# --
+<p>
+  <%= f.label :${1:field} %><br />
+  <%= f.${2:type} :$1 %>
+</p>$0
