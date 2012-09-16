@@ -36,28 +36,48 @@ Remove the leading / from the file name of the candidate."
 (cond
  ((file-exists-p "c:/")
   (let* ((non-dos "[^ \t\n\r\"'([<{]+")
-         (dos-fn  (concat "[a-zA-Z]:\\(\\(" non-dos " " non-dos "\\)\\|" non-dos "\\)+")))
-    (setq vs-flre (concat "\\(" dos-fn "\\):\\([0-9]+\\)"))
+         (dos-fn  (concat "[a-zA-Z]:\\(\\(" non-dos " " non-dos "\\)\\|" non-dos "\\)+"))
+         (line-re "\\([0-9]+\\)"))
+    (setq vs-flre (concat "\\(" dos-fn "\\):" line-re))
     (setq vs-flre-file 1)
-    (setq vs-flre-line 4)))
+    (setq vs-flre-line 4)
+    (setq vs-lfre (concat "line #" line-re " of \\(" dos-fn "\\)"))
+    (setq vs-lfre-line 1)
+    (setq vs-lfre-file 2)
+    ))
  (t
-  (let* ((unix-fn "[^ \t\n\r\"'([<{]+"))
-    (setq vs-flre (concat "\\(" unix-fn "\\):\\([0-9]+\\)"))
+  (let* ((unix-fn "[^ \t\n\r\"'([<{]+")
+         (line-re "\\([0-9]+\\)"))
+    (setq vs-flre (concat "\\(" unix-fn "\\):" line-re))
     (setq vs-flre-file 1)
-    (setq vs-flre-line 2))))
+    (setq vs-flre-line 2)
+    (setq vs-lfre (concat "line #" line-re " of \\(" unix-fn "\\)"))
+    (setq vs-lfre-line 1)
+    (setq vs-lfre-file 2)
+    )))
 
 (defun vs-generate-basic-candidates (line)
   (let ((start nil)
         (result nil))
-    (while (string-match vs-flre line start)
+    ;; If you could reference matched fragments with a name rather than a
+    ;; number this could be one single, sweet, nested loop over a list of
+    ;; patterns with a filename and a line in either order
+    (while (string-match vs-flre line start) ; with file/line re
       (setq start (match-end 0))
       (setq result
             (cons (list 
-                   (substring line (match-beginning vs-flre-file) (match-end vs-flre-file))
-                   (string-to-int (substring line
-                                             (match-beginning vs-flre-line)
-                                             (match-end vs-flre-line))))
+                   (match-string vs-flre-file line)
+                   (string-to-int (match-string vs-flre-line line)))
                   result)))
+    (setq start nil)                         ; from the top
+    (while (string-match vs-lfre line start) ; with line/file re
+      (setq start (match-end 0))
+      (setq result
+            (cons (list
+                   (match-string vs-lfre-file line)
+                   (string-to-int (match-string vs-lfre-line line)))
+                  result)))
+
     (dbg "Generated Candidates: " result)
     result))
 
@@ -91,10 +111,16 @@ The parent of / is nil."
         (t (vs-select-file-line (cdr candidates))) ))
 
 (defun vs-visit-source ()
-  "If the current line contains text like '../src/program.rb:34', visit 
-that file in the other window and position point on that line."
-  (interactive)
-  (let* ((line (vs-current-line))
+  "If the current line contains text like '../src/program.rb:34' or
+'line #34 of app/views/users/show.html.erb', visit that file in
+the other window and position point on that line. With a prefix
+argument, prompt the user for the line to parse."
+  (interactive "P")
+  (let* ((line (if ask-user
+                   (read-string "Source location: "
+                                (and interprogram-paste-function
+                                     (funcall interprogram-paste-function)))
+                 (vs-current-line)))
          (candidates (vs-generate-candidates line))
          (file-line (vs-select-file-line candidates)))
     (cond (file-line
