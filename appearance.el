@@ -16,7 +16,7 @@
   (require 'color-theme-night)
   (color-theme-night))
 
-(setq *jw-font-size* 16)
+(setq *jw-font-size* 22)
 
 (defun jw-set-font-size (points)
   "Set the font size to the given points."
