@@ -39,6 +39,7 @@
 
 ;; C-c *
 (global-set-key (kbd "C-C ?") 'jw-face-query)
+(global-set-key (kbd "C-C f") 'find-file-in-git-repo)
 
 ;; C-c C-*
 
