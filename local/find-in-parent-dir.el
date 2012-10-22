@@ -31,6 +31,9 @@
 
 ;;; Public functions -------------------------------------------------
 
+(defun jw-project-root ()
+  (jw-find-project-top (jw-parent-dir (buffer-file-name))))
+
 (defun jw-find-project-top (path)
   "Find the top level directory of a project starting with path.
 Return original path if not project top not found."
