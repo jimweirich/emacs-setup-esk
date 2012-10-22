@@ -16,3 +16,4 @@
 (make-auto "\\.as$"    'actionscript-mode)
 (make-auto "\\.as$"    'actionscript-mode)
 (make-auto "\\.clj$"   'clojure-mode)
+(make-auto "\\.hs$"   'haskell-mode)
