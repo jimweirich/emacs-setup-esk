@@ -11,6 +11,7 @@
 ;;;       search.  I find that is rarely what I need, so I switched it
 ;;;       back to the normal incremental search.
 
+(global-set-key (kbd "C-r") 'isearch-backward)
 (global-set-key (kbd "C-s") 'isearch-forward)
 
 ;;; Meta *
@@ -46,6 +47,8 @@
 (global-set-key (kbd "C-C C-f") 'auto-fill-mode)
 (global-set-key (kbd "C-C C-t") 'etog-split-or-toggle)
 (global-set-key (kbd "C-C C-d") 'delete-trailing-whitespace)
+(global-set-key (kbd "C-C C-r") 'isearch-backward-regexp)
+(global-set-key (kbd "C-C C-s") 'isearch-forward-regexp)
 
 ;; C-C c *
 (global-set-key (kbd "C-C c a") 'jw-align)
