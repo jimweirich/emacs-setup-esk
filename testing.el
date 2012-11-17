@@ -629,3 +629,21 @@ test file."
       (pop-to-buffer jw-test-last-test-buffer) ))
 
 (define-key compilation-mode-map "\C-c\C-t" 'jw-test-kill-test-buffer)
+
+;;; Testing Navigation
+
+(defun jw-goto-test-failure ()
+  "Goto the first test failure"
+  (interactive)
+  ()
+  (goto-char (point-min))
+  (search-forward " 1) "))
+
+(defun jw-goto-test-dbg ()
+  "Goto the first test debug output"
+  (interactive)
+  (goto-char (point-min))
+  (search-forward "DBG:"))
+
+(define-key compilation-mode-map "\C-c\C-f" 'jw-goto-test-failure)
+(define-key compilation-mode-map "\C-c\C-d" 'jw-goto-test-dbg)
