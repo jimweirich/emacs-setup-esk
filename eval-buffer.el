@@ -2,7 +2,8 @@
   '(("js" . "/usr/local/bin/node")
     ("rb" . "/Users/jim/local/bin/ruby19")
     ("coffee" . "/usr/local/bin/coffee")
-    ("clj" . "/Users/jim/local/bin/clojure")))
+    ("clj" . "/Users/jim/local/bin/clojure")
+    ("py" . "/usr/bin/python")))
 
 (defconst jw-eval-buffer-name "*EVALBUFFER*")
 
