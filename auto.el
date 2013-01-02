@@ -18,4 +18,7 @@
 (make-auto "\\.as$"    'actionscript-mode)
 (make-auto "\\.as$"    'actionscript-mode)
 (make-auto "\\.clj$"   'clojure-mode)
-(make-auto "\\.hs$"   'haskell-mode)
+(make-auto "\\.hs$"    'haskell-mode)
+(make-auto "\\.rake$"  'ruby-mode)
+(make-auto "Rakefile$" 'ruby-mode)
+(make-auto "Gemfile(\\.lock)?$" 'ruby-mode)
