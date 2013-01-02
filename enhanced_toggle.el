@@ -29,6 +29,11 @@
    ("\\1_spec.rb"              . "\\1.rb")))
 
 (add-toggle-mapping
+ '(jw-spec-lib
+   ("spec/lib/\\1_spec.rb"     . "lib/\\1.rb")
+   ("\\1_spec.rb"              . "\\1.rb")))
+
+(add-toggle-mapping
  '(jw-postfix
    ("test/\\1_test.rb" . "lib/\\1.rb")
    ("\\1_test.rb"      . "\\1.rb")))
@@ -184,4 +189,3 @@ mappings from other projects."
   (kill-buffer jw-test-buffer-name)
   (if jw-test-last-test-buffer
       (pop-to-buffer jw-test-last-test-buffer) ))
-
