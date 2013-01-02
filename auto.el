@@ -4,6 +4,8 @@
 (autoload 'go-mode            "go-mode"           "Go programming mode" t)
 (autoload 'clojure-mode       "clojure-mode"      "Clojure programming mode" t)
 
+(autoload 'xmp                "rcodetools"        "Ruby Code Tools" t)
+
 (defun make-auto (pattern mode)
   "Add a pattern to the auto-mode alist."
   (let ((ans (assoc pattern auto-mode-alist)))

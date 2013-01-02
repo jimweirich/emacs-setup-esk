@@ -49,6 +49,7 @@
 (global-set-key (kbd "C-C C-d") 'delete-trailing-whitespace)
 (global-set-key (kbd "C-C C-r") 'isearch-backward-regexp)
 (global-set-key (kbd "C-C C-s") 'isearch-forward-regexp)
+(global-set-key (kbd "C-C C-v") 'xmp)
 
 ;; C-C c *
 (global-set-key (kbd "C-C c a") 'jw-align)
