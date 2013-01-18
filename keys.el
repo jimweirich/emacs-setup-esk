@@ -1,6 +1,6 @@
-;;; GLobal key bindings
+;;; Global key bindings
 
-;;; * Arrows -- I prefer logical line navigation by default, the its
+;;; * Arrows -- I prefer logical line navigation by default, but its
 ;;;             nice to have the the arrow keys use visual line
 ;;;             navigation.
 
@@ -56,6 +56,7 @@
 (global-set-key (kbd "C-C c c") 'top-level)
 
 ;; C-C g *
+(global-unset-key (kbd "C-C g"))        ; Something seems to be binding this
 (global-set-key (kbd "C-C g b") 'jw-mo-git-blame)
 (global-set-key (kbd "C-C g g") 'magit-status)
 
