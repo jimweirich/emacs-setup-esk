@@ -90,6 +90,8 @@
 (global-set-key (kbd "C-C SPC") 'jw-shell) ; override the default binding here
 (global-set-key (kbd "C-C \\")  'codol-toggle)
 
+(global-set-key (kbd "C-x SPC")  'jw-shell) ; Sometimes C-C SPC is used in minor modes
+
 ;;; Function keys
 
 (global-set-key (kbd "<f2>") 'vs-visit-source)
