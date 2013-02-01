@@ -4,15 +4,15 @@
 ;;;
 ;;; Use and distribution subject to the terms of the Ruby license.
 
-(defvar xmpfilter-command-name "ruby -S xmpfilter --dev --fork --detect-rbtest"
+(defvar xmpfilter-command-name "xruby -S xmpfilter --dev --fork --detect-rbtest"
   "The xmpfilter command name.")
-(defvar rct-doc-command-name "ruby -S rct-doc --dev --fork --detect-rbtest"
+(defvar rct-doc-command-name "xruby -S rct-doc --dev --fork --detect-rbtest"
   "The rct-doc command name.")
-(defvar rct-complete-command-name "ruby -S rct-complete --dev --fork --detect-rbtest"
+(defvar rct-complete-command-name "xruby -S rct-complete --dev --fork --detect-rbtest"
   "The rct-complete command name.")
-(defvar ruby-toggle-file-command-name "ruby -S ruby-toggle-file"
+(defvar ruby-toggle-file-command-name "xruby -S ruby-toggle-file"
   "The ruby-toggle-file command name.")
-(defvar rct-fork-command-name "ruby -S rct-fork")
+(defvar rct-fork-command-name "xruby -S rct-fork")
 (defvar rct-option-history nil)                ;internal
 (defvar rct-option-local nil)     ;internal
 (make-variable-buffer-local 'rct-option-local)
@@ -29,7 +29,7 @@
       (insert "=>")
     ad-do-it))
 ;; To remove this advice.
-;; (progn (ad-disable-advice 'comment-dwim 'around 'rct-hack) (ad-update 'comment-dwim)) 
+;; (progn (ad-disable-advice 'comment-dwim 'around 'rct-hack) (ad-update 'comment-dwim))
 
 (defun rct-current-line ()
   "Return the vertical position of point..."
@@ -54,7 +54,7 @@
      (if current-prefix-arg
          (setq rct-option-local
                (read-from-minibuffer "rcodetools option: " option nil nil 'rct-option-history))
-       option))))  
+       option))))
 
 (defun rct-shell-command (command &optional buffer)
   "Replacement for `(shell-command-on-region (point-min) (point-max) command buffer t' because of encoding problem."

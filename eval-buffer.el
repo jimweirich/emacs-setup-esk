@@ -1,6 +1,6 @@
 (defconst jw-eval-buffer-commands
   '(("js" . "/usr/local/bin/node")
-    ("rb" . "/Users/jim/local/bin/ruby19")
+    ("rb" . "/Users/jim/local/bin/xruby")
     ("coffee" . "/usr/local/bin/coffee")
     ("clj" . "/Users/jim/local/bin/clojure")
     ("py" . "/usr/bin/python")))
