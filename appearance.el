@@ -21,7 +21,8 @@
 (defun jw-set-font-size (points)
   "Set the font size to the given points."
   (setq *jw-font-size* points)
-  (set-face-attribute 'default nil :height (* 10 *jw-font-size*)))
+  (set-face-attribute 'default nil :height (* 10 *jw-font-size*))
+  (message (concat "Font Size: " (number-to-string *jw-font-size*))))
 
 (defun jw-bigger-font ()
   "Make the current font a bit bigger."

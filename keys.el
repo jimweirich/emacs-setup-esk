@@ -1,5 +1,10 @@
 ;;; Global key bindings
 
+;;; Disable the right alt key as meta so that it can work for unicode
+;;; characters.
+
+(setq ns-right-alternate-modifier nil)
+
 ;;; * Arrows -- I prefer logical line navigation by default, but its
 ;;;             nice to have the the arrow keys use visual line
 ;;;             navigation.
