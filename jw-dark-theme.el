@@ -1,9 +1,15 @@
 (deftheme jw-dark
   "Created 2012-08-01.")
 
+;;; Possible Fonts:
+;;; * "Monaco" / "apple"
+;;; * "Menlo" / "apple"
+;;; * "Bitstream Vera Sans Mono" / "bitstream"
+;;; * "Source Code Pro" / "adobe"
+
 (custom-theme-set-faces
  'jw-dark
- '(default ((t (:family "Source Code Pro" :foundry "adobe" :width normal :height 220 :weight normal :slant normal :underline nil :overline nil :strike-through nil :box nil :inverse-video nil :foreground "#f6f3e8" :background "#000000" :stipple nil :inherit nil))))
+ '(default ((t (:family "Menlo" :foundry "apple" :width normal :height 220 :weight normal :slant normal :underline nil :overline nil :strike-through nil :box nil :inverse-video nil :foreground "#f6f3e8" :background "#000000" :stipple nil :inherit nil))))
  '(cursor ((t (:background "#ff0000"))))
  '(fixed-pitch ((t (:family "Monospace"))))
  '(variable-pitch ((t (:family "Sans Serif"))))
