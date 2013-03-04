@@ -212,6 +212,12 @@
   "Is the given file name a spec file?"
   (string-match "\\bspec\\b" (file-name-nondirectory file-name)) )
 
+(defun jw-spec-contents-p (file-name)
+  (save-current-buffer
+    (message file-name)
+    (set-buffer (get-file-buffer file-name))
+    (string-match "<<--spec-->>" (buffer-string))))
+
 (defun jw-test-file-name-p (file-name)
   "Is the given file name a test file?"
   (string-match "\\btest\\b" (file-name-nondirectory file-name)) )
@@ -383,7 +389,8 @@ test file."
   (let* ((file-name (buffer-file-name))
          (default-directory (jw-find-project-top file-name))
          (test-buffer (current-buffer)) )
-    (if (not (jw-spec-file-name-p file-name))
+    (if (and (not (jw-spec-file-name-p file-name))
+             (not (jw-spec-contents-p file-name)))
         (progn
           (jw-toggle-buffer)
           (setq file-name (buffer-file-name)) ))
@@ -582,6 +589,7 @@ test file."
   (let ((file-name (buffer-file-name)))
     (cond ((jw-test-file-name-p file-name) (jw-run-test-method args))
           ((jw-spec-file-name-p file-name) (jw-run-spec-method args))
+          ((jw-spec-contents-p file-name) (jw-run-spec-method args))
           ((jw-koan-file-name-p file-name) (jw-run-test-method args))
           ((jw-given-file-name-p file-name) (jw-run-given-method args))
           ((jw-selenium-rc-file-name-p file-name) (jw-run-test-method args))
@@ -597,6 +605,7 @@ test file."
   (let ((file-name (buffer-file-name)))
     (cond ((jw-test-file-name-p file-name) (jw-run-test-file args))
           ((jw-spec-file-name-p file-name) (jw-run-spec-file args))
+          ((jw-spec-contents-p file-name) (jw-run-spec-file args))
           ((jw-koan-file-name-p file-name) (jw-run-test-file args))
           ((jw-given-file-name-p file-name) (jw-run-test-file args))
           (t (error "not a test nor a spec")) )))
