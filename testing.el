@@ -30,6 +30,9 @@
 ;;; Options to be added to the spec command.
 (defconst jw-spec-options "")
 
+;;; Pattern to use to determine if the contents of the file is a spec.
+(defconst jw-spec-contents-pattern "\\(context\\|describe\\).*\\(\\bdo\\b\\|{\\)")
+
 ;;; If true, run the tests with warnings turned on.
 (defvar jw-test-warnings t)
 
@@ -216,7 +219,8 @@
   (save-current-buffer
     (message file-name)
     (set-buffer (get-file-buffer file-name))
-    (string-match "<<--spec-->>" (buffer-string))))
+    (or (string-match "<<--spec-->>" (buffer-string))
+        (string-match jw-spec-contents-pattern (buffer-string)))))
 
 (defun jw-test-file-name-p (file-name)
   "Is the given file name a test file?"
