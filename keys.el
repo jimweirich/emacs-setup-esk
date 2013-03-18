@@ -57,7 +57,8 @@
 (global-set-key (kbd "C-C C-v") 'xmp)
 
 ;; C-C c *
-(global-set-key (kbd "C-C c a") 'jw-align)
+(global-set-key (kbd "C-C c a") 'align)
+(global-set-key (kbd "C-C c C-a") 'jw-align)
 (global-set-key (kbd "C-C c c") 'top-level)
 
 ;; C-C g *
