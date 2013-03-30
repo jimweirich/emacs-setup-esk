@@ -53,5 +53,9 @@
     (if face (message (symbol-name face))
       (message "No Face"))))
 
-(require 'jw-dark-theme)
+(let ((theme (getenv "ETHEME")))
+  (if theme (load-file theme)))
+
+;;(require 'jw-dark-theme)
+
 ;;;;;(jw-standard-font)
