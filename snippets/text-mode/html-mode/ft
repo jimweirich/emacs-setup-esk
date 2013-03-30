@@ -1,6 +1,6 @@
 # -*- mode: rhtml; require-final-newline: nil; backup-inhibited: t -*-
-#name: <tag> ... </tag>
+#name: <footer></footer>
 # --
-<${1:tag}>
+<footer>
   $0
-</$1>
+</footer>

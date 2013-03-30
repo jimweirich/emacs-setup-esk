@@ -1,4 +1,6 @@
 # -*- mode: rhtml; require-final-newline: nil; backup-inhibited: t -*-
-#name: <!-- comment -->
+#name: <ul></ul>
 # --
-<!-- $0 -->
+<ul>
+  $0
+</ul>

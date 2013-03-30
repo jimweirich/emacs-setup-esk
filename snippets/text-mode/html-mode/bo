@@ -1,4 +1,6 @@
 # -*- mode: rhtml; require-final-newline: nil; backup-inhibited: t -*-
-#name: <tag> ... </tag>
+#name: <body></body>
 # --
-<${1:tag}>$0</$1>
+<body>
+  $0
+</body>

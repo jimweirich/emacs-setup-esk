@@ -1,0 +1,6 @@
+# -*- mode: rhtml; require-final-newline: nil; backup-inhibited: t -*-
+#name: <div></div>
+# --
+<div>
+  $0
+</div>

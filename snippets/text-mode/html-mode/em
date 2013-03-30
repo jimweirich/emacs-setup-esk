@@ -1,4 +1,4 @@
 # -*- mode: rhtml; require-final-newline: nil; backup-inhibited: t -*-
-#name: link_to
+#name: <em></em>
 # --
-<%= link_to ${1:text}, ${2:url}, ${3:options} %>$0
+<em>$0</em>

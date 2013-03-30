@@ -1,6 +1,6 @@
 # -*- mode: rhtml; require-final-newline: nil; backup-inhibited: t -*-
-#name: if cond ... 
+#name: <p></p>
 # --
-<% if ${1:cond} %>
+<p>
   $0
-<% end %>
+</p>
