@@ -33,8 +33,8 @@
 (defun snippet-remove-empty-parens (text)
   (if (string-equal text "()") "()" text) )
 
-(mapc '(lambda (hook) (add-hook hook 'yas/minor-mode-on))
-      '(ruby-mode-hook))
+(add-hook 'ruby-mode-hook 'yas/minor-mode-on)
+(add-hook 'html-mode-hook 'yas/minor-mode-on)
 
 ;;; The default background tends to wash out the foreground color a
 ;;; bit.  Let's try something different.
