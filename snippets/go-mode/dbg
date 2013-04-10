@@ -1,0 +1,4 @@
+# -*- mode: go; require-final-newline: nil; backup-inhibited: t -*-
+#name: fmt.Println("DBG: var =", value)
+# --
+fmt.Println("DBG: $1 =", ${1:var})
