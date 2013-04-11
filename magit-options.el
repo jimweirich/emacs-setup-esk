@@ -7,4 +7,3 @@
       ((file-readable-p "/usr/bin/git")
        (setq magit-git-executable "/usr/bin/git"))
       (t (setq magit-git-executable "git")))
-"/usr/local/bin/git"
