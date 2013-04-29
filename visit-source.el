@@ -37,11 +37,10 @@ Remove the leading / from the file name of the candidate."
  ((file-exists-p "c:/")
   (let* ((non-dos "[^ \t\n\r\"'([<{]+")
          (dos-fn  (concat "[a-zA-Z]:\\(\\(" non-dos " " non-dos "\\)\\|" non-dos "\\)+")))
-    (setq vs-flre (concat "\\(" dos-fn "\\):\\([0-9]+\\)"))
     (setq vs-flre-file 1)
     (setq vs-flre-line 4)))
  (t
-  (let* ((unix-fn "[^ \t\n\r\"'([<{]+"))
+  (let* ((unix-fn "[^ \t\n\r\"'([<{:]+"))
     (setq vs-flre (concat "\\(" unix-fn "\\):\\([0-9]+\\)"))
     (setq vs-flre-file 1)
     (setq vs-flre-line 2))))
@@ -94,6 +93,7 @@ The parent of / is nil."
   "If the current line contains text like '../src/program.rb:34', visit 
 that file in the other window and position point on that line."
   (interactive)
+    (setq vs-flre (concat "\\(" dos-fn "\\):\\([0-9]+\\)"))
   (let* ((line (vs-current-line))
          (candidates (vs-generate-candidates line))
          (file-line (vs-select-file-line candidates)))
