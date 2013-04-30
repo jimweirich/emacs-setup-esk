@@ -62,6 +62,7 @@
 (global-set-key (kbd "C-C c a") 'align)
 (global-set-key (kbd "C-C c C-a") 'jw-align)
 (global-set-key (kbd "C-C c c") 'top-level)
+(global-set-key (kbd "C-C c v") 'vs-visit-source)
 
 ;; C-C g *
 (global-unset-key (kbd "C-C g"))        ; Something seems to be binding this
