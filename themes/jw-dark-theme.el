@@ -1,11 +1,12 @@
 (deftheme jw-dark
   "Created 2012-08-01.")
 
-;;; Possible Fonts:
+;;; Possible Fonts (if installed):
 ;;; * "Monaco" / "apple"
 ;;; * "Menlo" / "apple"
 ;;; * "Bitstream Vera Sans Mono" / "bitstream"
 ;;; * "Source Code Pro" / "adobe"
+;;; * "Envy Code R" / "apple"
 
 (custom-theme-set-faces
  'jw-dark
