@@ -1,6 +1,6 @@
 ;;; Source File Visiting
 ;;;
-;;; Visit a source file 
+;;; Visit a source file
 
 (defun vs-current-line ()
   "Return the current line."
@@ -37,6 +37,7 @@ Remove the leading / from the file name of the candidate."
  ((file-exists-p "c:/")
   (let* ((non-dos "[^ \t\n\r\"'([<{]+")
          (dos-fn  (concat "[a-zA-Z]:\\(\\(" non-dos " " non-dos "\\)\\|" non-dos "\\)+")))
+    (setq vs-flre (concat "\\(" dos-fn "\\):\\([0-9]+\\)"))
     (setq vs-flre-file 1)
     (setq vs-flre-line 4)))
  (t
@@ -51,7 +52,7 @@ Remove the leading / from the file name of the candidate."
     (while (string-match vs-flre line start)
       (setq start (match-end 0))
       (setq result
-            (cons (list 
+            (cons (list
                    (substring line (match-beginning vs-flre-file) (match-end vs-flre-file))
                    (string-to-int (substring line
                                              (match-beginning vs-flre-line)
@@ -90,17 +91,16 @@ The parent of / is nil."
         (t (vs-select-file-line (cdr candidates))) ))
 
 (defun vs-visit-source ()
-  "If the current line contains text like '../src/program.rb:34', visit 
+  "If the current line contains text like '../src/program.rb:34', visit
 that file in the other window and position point on that line."
   (interactive)
-    (setq vs-flre (concat "\\(" dos-fn "\\):\\([0-9]+\\)"))
   (let* ((line (vs-current-line))
          (candidates (vs-generate-candidates line))
          (file-line (vs-select-file-line candidates)))
     (cond (file-line
            (find-file-other-window (car file-line))
            (goto-line (cadr file-line)) )
-          (t 
+          (t
            (error "No source location on line.")) )))
 
 ;; vs-visit-source is traditionally bound to <f2>.  (see keybindings.el)
