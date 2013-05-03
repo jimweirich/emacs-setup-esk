@@ -1,0 +1,11 @@
+# -*- mode: ruby; require-final-newline: nil; backup-inhibited: t -*-
+#name: UIButton
+# --
+@${1:var} = UIButton.buttonWithType(UIButtonTypeRoundedRect)
+@$1.frame = [[10, y], [view.frame.size.width-20, 44]]
+@$1.setTitle("${2:title}", forState:UIControlStateNormal)
+@$1.setTitleColor(UIColor.blackColor, forState:UIControlStateNormal)
+@$1.backgroundColor = UIColor.clearColor
+@$1.addTarget(self, action: '${3:action}', forControlEvents:UIControlEventTouchUpInside)
+view.addSubview(@$1)
+y += @$1.frame.size.height

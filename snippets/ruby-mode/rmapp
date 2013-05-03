@@ -1,0 +1,6 @@
+# -*- mode: ruby; require-final-newline: nil; backup-inhibited: t -*-
+#name: AppDelegate
+# --
+@window = UIWindow.alloc.initWithFrame(UIScreen.mainScreen.bounds)
+@window.rootViewController = ${1:controller_name}.alloc.init
+@window.makeKeyAndVisible
