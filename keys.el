@@ -51,11 +51,12 @@
 
 ;; C-c C-*
 
-(global-set-key (kbd "C-C C-f") 'auto-fill-mode)
-(global-set-key (kbd "C-C C-t") 'etog-split-or-toggle)
 (global-set-key (kbd "C-C C-d") 'delete-trailing-whitespace)
+(global-set-key (kbd "C-C C-f") 'auto-fill-mode)
+(global-set-key (kbd "C-C C-g") 'xmp-clear)
 (global-set-key (kbd "C-C C-r") 'isearch-backward-regexp)
 (global-set-key (kbd "C-C C-s") 'isearch-forward-regexp)
+(global-set-key (kbd "C-C C-t") 'etog-split-or-toggle)
 (global-set-key (kbd "C-C C-v") 'xmp)
 
 ;; C-C c *
