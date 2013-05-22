@@ -1,0 +1,10 @@
+# -*- mode: ruby; require-final-newline: nil; backup-inhibited: t -*-
+#name : $VERBOSE = nil
+# --
+begin
+  old_verbose = $VERBOSE
+  $VERBOSE = nil
+  ${1:code}
+ensure
+  $VERBOSE = old_verbose
+end
