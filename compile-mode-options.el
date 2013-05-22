@@ -31,3 +31,9 @@
   (toggle-read-only))
 
 (add-hook 'compilation-filter-hook 'colorize-compilation-buffer)
+
+;;; Use the following hook to remove colorization from the compile
+;;; buffer for tests. This is occassionally needed when projecting on
+;;; a low contrast screen (red test failures don't show up so well).
+
+; (add-hook 'compilation-filter-hook 'unansi)
