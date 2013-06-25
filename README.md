@@ -17,6 +17,11 @@ starter kit is not compatibile with it, or so I've been told)
 
 * Install the Emacs Starter Kit listed above
 * Clone this repository to .emacs.d/XXX (where XXX is your user name)
+* Add this line as first line to `00-load-path.el`
+
+``` lisp
+  (setq user-specific-dir "/home/XXX/.emacs.d/XXX") ; where XXX is your user name
+```
 
 ## Features
 
