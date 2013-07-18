@@ -104,7 +104,12 @@
 
 ;;; Function keys
 
+(defun jw-laser ()
+  (interactive)
+  (message "Laser Pointer!"))
+
 (global-set-key (kbd "<f2>") 'vs-visit-source)
+(global-set-key (kbd "<f5>") 'jw-laser)
 (global-set-key (kbd "<f6>") 'refresh-buffer)
 
 (global-set-key (kbd "M-<f1>") (lambda () (interactive) (jw-shell 1)))
