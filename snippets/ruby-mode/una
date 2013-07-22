@@ -1,0 +1,4 @@
+# -*- mode: ruby; require-final-newline: nil; backup-inhibited: t -*-
+# name : use_natural_assertions
+# --
+Given.use_natural_assertions
