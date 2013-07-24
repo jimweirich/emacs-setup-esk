@@ -28,4 +28,5 @@
 
 (add-hook 'ruby-mode-hook
           '(lambda ()
+             (modify-syntax-entry ?: "." ruby-mode-syntax-table)
              (define-key ruby-mode-map "\C-j" 'jw-reindent-then-newline-and-indent)))
