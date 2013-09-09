@@ -14,7 +14,7 @@
         (t (jw-dir-contains-any-p path (cdr files)))))
 
 (defconst jw-project-top-level-files
-  '("Rakefile" "config/database.yml"))
+  '("Rakefile" "config/database.yml" ".git"))
 
 (defun jw-project-top-p (path)
   "Are we at the top of a project?"
