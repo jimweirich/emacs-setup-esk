@@ -1,0 +1,6 @@
+# -*- mode: ruby; require-final-newline: nil; backup-inhibited: t -*-
+#name: RSpec Task
+# --
+require 'rspec/core/rake_task'
+
+RSpec::Core::RakeTask.new(:spec)

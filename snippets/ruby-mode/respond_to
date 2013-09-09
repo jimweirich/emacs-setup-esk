@@ -1,0 +1,7 @@
+# -*- mode: ruby; require-final-newline: nil; backup-inhibited: t -*-
+#name : respond_to
+# --
+respond_to do |format|
+  format.html
+  format.json { render json: ${1:object} }
+end$0
