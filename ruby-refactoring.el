@@ -21,6 +21,8 @@
 (defvar rrf-refactored-var-body nil)
 (defvar rrf-refactored-var-name nil)
 
+(defvar rrf-non-id-pattern "[^A-Za-z0-9_]")
+
 ;;; Top-level refactoring functions
 
 (defun rrf-extract-temporary (var-name beg end)
@@ -29,12 +31,11 @@
   (setq rrf-refactored-var-name var-name)
   (setq rrf-refactored-var-body (buffer-substring beg end))
   (rrf-replace-region beg end rrf-refactored-var-name)
-  (setq rrf-insertion-method 'rrf-insert-extracted-temporary))
-
-(defun rrf-insert-extracted-temporary ()
-  "Insert the definition for a previously extracted temporary variable."
-  (interactive)
-  (rrf-insert-named-expression rrf-refactored-var-name rrf-refactored-var-body))
+  (goto-char beg)
+  (move-beginning-of-line 1)
+  (open-line 1)
+  (rrf-insert-named-expression rrf-refactored-var-name rrf-refactored-var-body)
+  (setq rrf-insertion-method nil))
 
 (defun rrf-extract-constant (const-name beg end)
   "Extract an expression into a constant."
@@ -82,7 +83,28 @@
   "Insert the last thing that was extracted."
   (interactive)
   (if rrf-insertion-method
-      (funcall rrf-insertion-method)))
+      (funcall rrf-insertion-method))
+  (setq rrf-insertion-method nil))
+
+(defun rrf-inline-variable-definition (beg end)
+  "Inline the variable being defined by the expression in the region."
+  (interactive "r")
+  (setq beg (rrf-adj-beg beg end))
+  (setq end (rrf-adj-endl beg end))
+  (goto-char beg)
+  (re-search-backward "[A-Za-z0-9_?!] *= *")
+  (setq rrf-refactored-var-name (rrf-word-string))
+  (setq rrf-refactored-var-body (buffer-substring beg end))
+  (move-beginning-of-line 1)
+  (let ((here (point)))
+    (kill-region here (+ 1 end))
+    (mark-defun)
+    (goto-char here)
+    (query-replace-regexp
+     rrf-refactored-var-name
+     rrf-refactored-var-body
+     t
+     here (mark))))
 
 ;;; Utility Functions
 
@@ -123,6 +145,22 @@
         (goto-char (- loc 1))
         (looking-at "\n"))))
 
+(defun rrf-beginning-of-word ()
+  "Find the beginning of the word at point."
+  (save-excursion
+    (re-search-backward rrf-non-id-pattern)
+    (+ (point) 1)))
+
+(defun rrf-end-of-word ()
+  "Find the beginning of the word at point."
+  (save-excursion
+    (re-search-forward rrf-non-id-pattern)
+    (- (point) 1)))
+
+(defun rrf-word-string ()
+  "Return the identifier (as a string) on point."
+  (buffer-substring (rrf-beginning-of-word) (rrf-end-of-word)))
+
 ;;; Debugging
 
 (defun rrfx (beg end)
@@ -140,3 +178,4 @@
 (define-key ruby-mode-map "\C-cat" 'rrf-extract-temporary)
 (define-key ruby-mode-map "\C-cam" 'rrf-extract-method)
 (define-key ruby-mode-map "\C-cay" 'rrf-insert-extraction)
+(define-key ruby-mode-map "\C-cait" 'rrf-inline-variable-definition)
