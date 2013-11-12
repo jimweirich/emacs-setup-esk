@@ -13,7 +13,6 @@
 
 ;;; Globals used by the refactorings
 
-(defvar rrf-insertion-method nil)
 (defvar rrf-refactored-const-body nil)
 (defvar rrf-refactored-const-name nil)
 (defvar rrf-refactored-method-body nil)
@@ -22,6 +21,7 @@
 (defvar rrf-refactored-var-name nil)
 
 (defvar rrf-non-id-pattern "[^A-Za-z0-9_]")
+(defvar rff-extraction-point nil)
 
 ;;; Top-level refactoring functions
 
@@ -31,23 +31,23 @@
   (setq rrf-refactored-var-name var-name)
   (setq rrf-refactored-var-body (buffer-substring beg end))
   (rrf-replace-region beg end rrf-refactored-var-name)
+  (setq rff-extraction-point beg)
   (goto-char beg)
   (move-beginning-of-line 1)
   (open-line 1)
-  (rrf-insert-named-expression rrf-refactored-var-name rrf-refactored-var-body)
-  (setq rrf-insertion-method nil))
+  (rrf-insert-named-expression rrf-refactored-var-name rrf-refactored-var-body))
 
 (defun rrf-extract-constant (const-name beg end)
   "Extract an expression into a constant."
   (interactive "sConstant Name: \nr")
-  (setq rrf-refactored-const-name const-name)
+  (setq rrf-refactored-const-name (upcase const-name))
   (setq rrf-refactored-const-body (buffer-substring beg end))
   (rrf-replace-region beg end rrf-refactored-const-name)
-  (setq rrf-insertion-method 'rrf-insert-extracted-constant))
-
-(defun rrf-insert-extracted-constant ()
-  "Insert the definition for a previously extracted constant."
-  (interactive)
+  (setq rff-extraction-point beg)
+  (mark-defun)
+  (goto-char (point))
+  (open-line 1)
+  (insert-string "\n")
   (rrf-insert-named-expression rrf-refactored-const-name rrf-refactored-const-body))
 
 (defun rrf-extract-method (method-name args beg end)
@@ -61,23 +61,16 @@
         end (rrf-adj-endl beg end))
   (setq rrf-refactored-method-body (buffer-substring beg end))
   (rrf-replace-region beg end rrf-refactored-method-name)
-  (setq rrf-insertion-method 'rrf-insert-extracted-method))
+  (setq rff-extraction-point beg)
+  (mark-defun)
+  (goto-char (mark))
+  (open-line 1)
+  (insert-string "\n")
+  (rrf-insert-extracted-method))
 
-(defun rrf-insert-extracted-method ()
-  "Insert the definition for a previously extracted method."
+(defun rrf-jump-to-extraction-point ()
   (interactive)
-  (let ((b nil) (e nil))
-    (insert-string "def ")
-    (insert-string rrf-refactored-method-name)
-    (indent-according-to-mode)
-    (insert-string "\n")
-    (setq b (point))
-    (insert-string rrf-refactored-method-body)
-    (setq e (point))
-    (indent-region b e)
-    (insert-string "\nend")
-    (indent-according-to-mode)
-    (insert-string "\n")))
+  (goto-char rff-extraction-point))
 
 (defun rrf-insert-extraction ()
   "Insert the last thing that was extracted."
@@ -107,6 +100,20 @@
      here (mark))))
 
 ;;; Utility Functions
+
+(defun rrf-insert-extracted-method ()
+  "Insert the definition for a previously extracted method."
+  (let ((b nil) (e nil))
+    (insert-string "def ")
+    (insert-string rrf-refactored-method-name)
+    (indent-according-to-mode)
+    (insert-string "\n")
+    (setq b (point))
+    (insert-string rrf-refactored-method-body)
+    (setq e (point))
+    (indent-region b e)
+    (insert-string "\nend")
+    (indent-according-to-mode)))
 
 (defun rrf-replace-region (beg end replacement)
   "Replace the region with REPLACEMENT"
@@ -177,5 +184,5 @@
 (define-key ruby-mode-map "\C-cac" 'rrf-extract-constant)
 (define-key ruby-mode-map "\C-cat" 'rrf-extract-temporary)
 (define-key ruby-mode-map "\C-cam" 'rrf-extract-method)
-(define-key ruby-mode-map "\C-cay" 'rrf-insert-extraction)
+(define-key ruby-mode-map "\C-caj" 'rrf-jump-to-extraction-point)
 (define-key ruby-mode-map "\C-cait" 'rrf-inline-variable-definition)
