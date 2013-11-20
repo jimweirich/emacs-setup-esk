@@ -102,6 +102,8 @@
 
 (global-set-key (kbd "C-x SPC")  'jw-shell) ; Sometimes C-C SPC is used in minor modes
 
+(global-set-key (kbd "C-M-z") 'undo-tree-visualize)
+
 ;;; Function keys
 
 (defun jw-laser ()
