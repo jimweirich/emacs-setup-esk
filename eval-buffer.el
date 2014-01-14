@@ -1,9 +1,11 @@
 (defconst jw-eval-buffer-commands
   '(("js" . "/usr/local/bin/node")
-    ("rb" . "/Users/jim/local/bin/xruby")
+    ("rb" . "/Users/jim/bin/xruby")
     ("coffee" . "/usr/local/bin/coffee")
     ("clj" . "/Users/jim/local/bin/clojure")
-    ("py" . "/usr/bin/python")))
+    ("py" . "/usr/bin/python")
+    ("ex" . "/usr/local/bin/elixir")
+    ("exs" . "/usr/local/bin/elixir")))
 
 (defconst jw-eval-buffer-name "*EVALBUFFER*")
 
