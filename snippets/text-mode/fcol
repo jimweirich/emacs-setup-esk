@@ -1,0 +1,4 @@
+# -*- mode: emacs-lisp; require-final-newline: nil -*-
+# name : emacs mode line
+# --
+-*- mode: text; fill-column: 100000000000 -*-
